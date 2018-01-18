@@ -1,0 +1,23 @@
+<div account-card *ngIf="member != null && member !== undefined">
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between stretch">
+      <img fxFlex="35%" avatar mat-card-avatar src="{{member.Avatar}}" alt="Member Avatar" />
+      <div fxFlex fxAlign="center">
+        <mat-card-title>{{member.FriendlyName}}</mat-card-title>
+        <mat-card-subtitle>{{member.Department}}</mat-card-subtitle>
+      </div>
+
+    </mat-card-header>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+      <button id="profileBtn" fxFlex="0 1 20%" mat-raised-button color="primary" (click)="navigate(profileUrl)">Profile</button>
+      <button id="logoutBtn" fxFlex="0 1 20%" mat-raised-button color="primary" (click)="logout()">Logout</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div account-card *ngIf="member == null || member === undefined">
+    <mat-card>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center">
+          <button id="loginBtn" fxFlex="0 1 20%" mat-raised-button color="primary" (click)="navigate(loginUrl)">Sign In</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

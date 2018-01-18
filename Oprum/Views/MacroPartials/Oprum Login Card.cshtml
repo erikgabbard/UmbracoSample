@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@using ClientDependency.Core.Mvc;
+@using Umbraco.Web;
+
+@{
+    Html.RequiresCss("~/App_Plugins/PoweredByOprum/Components/dist/login-card/styles.bundle.css");
+
+    Html.RequiresJs("~/App_Plugins/PoweredByOprum/Components/dist/login-card/inline.bundle.js");
+    Html.RequiresJs("~/App_Plugins/PoweredByOprum/Components/dist/login-card/polyfills.bundle.js");
+    Html.RequiresJs("~/App_Plugins/PoweredByOprum/Components/dist/login-card/vendor.bundle.js");
+    Html.RequiresJs("~/App_Plugins/PoweredByOprum/Components/dist/login-card/main.bundle.js");
+
+    var currentPageId = UmbracoContext.Current.PageId;
+    var currentPage = Umbraco.TypedContent(currentPageId);
+}
+
+@if (UmbracoContext.IsFrontEndUmbracoRequest)
+{
+    Html.RenderCssHere();
+
+    <login-card redirectUrl="@currentPage.Url"></login-card>
+    Html.RenderJsHere();
+}
+else
+{
+    <div class="text-center">
+        <div><i class="fa fa-user"></i> <span>@Model.MacroName</span></div>
+    </div>
+}

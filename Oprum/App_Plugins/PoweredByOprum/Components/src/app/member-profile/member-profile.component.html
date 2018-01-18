@@ -1,0 +1,288 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div loading-spinner *ngIf="member == null || member === undefined">
+  <svg class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+  </svg>
+</div>
+
+<form *ngIf="member != null && member !== undefined" profile-form name="ProfileForm" (ngSubmit)="onSubmit()" novalidate>
+  <mat-accordion class="profile-headers-align">
+    <mat-expansion-panel multi="true" hideToggle="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Name & Contact Info</mat-panel-title>
+        <mat-panel-description>Expand to enter your name and contact info
+          <mat-icon color="primary">person</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="row" fxLayoutAlign="space-around">
+        <div fxFlex="20" fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img avatarImg src="{{member.Avatar}}" />
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field avatarCaption>
+              <mat-icon matPrefix>person</mat-icon>
+              <input matInput [(ngModel)]="member.FriendlyName" placeholder="Friendly Name" name="friendlyName" [formControl]="profileForm.controls['friendlyName']">
+            </mat-form-field>
+          </div>
+          <!-- <div fxLayout="row" fxLayoutAlign="center center">
+                <input hidden #avatarInput type="file" (change)="editAvatar($event)"/>
+                <button type="button" mat-raised-button color="accent" (click)="avatarInput.click()"><mat-icon>mode_edit</mat-icon>&nbsp; Edit Avatar</button>
+              </div> -->
+        </div>
+        <div fxFlex="70" fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex="40">
+              <mat-icon matPrefix>person</mat-icon>
+              <input matInput [(ngModel)]="member.LegalFirstName" placeholder="First Name" name="firstName" [formControl]="profileForm.controls['firstName']">
+              <mat-error *ngIf="profileForm.controls['firstName'].hasError('required')">
+                First name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="10">
+              <mat-icon matPrefix>person</mat-icon>
+              <input matInput [(ngModel)]="member.MiddleInitial" placeholder="M.I." name="middleInitial" [formControl]="profileForm.controls['middleInitial']">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="40">
+              <mat-icon matPrefix>person</mat-icon>
+              <input matInput [(ngModel)]="member.LastName" placeholder="Last Name" name="lastName" [formControl]="profileForm.controls['lastName']">
+              <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
+                Last name is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field fxFlex="40">
+              <mat-icon matPrefix>email</mat-icon>
+              <input matInput [(ngModel)]="member.Email" placeholder="Email Address" name="emailAddress" [formControl]="profileForm.controls['email']">
+              <mat-error *ngIf="profileForm.controls['email'].hasError('pattern')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+                Email Address is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="40">
+              <mat-icon matPrefix>phone</mat-icon>
+              <input matInput [(ngModel)]="member.PersonalPhoneNumber" placeholder="Personal Phone Number" name="personalPhoneNumber" [formControl]="profileForm.controls['personalPhoneNumber']">
+              <mat-error *ngIf="profileForm.controls['personalPhoneNumber'].hasError('pattern')">
+                Please enter a valid phone number
+              </mat-error>
+              <mat-error *ngIf="profileForm.controls['personalPhoneNumber'].hasError('required')">
+                Phone number is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!profileForm.valid">
+          <mat-icon>verified_user</mat-icon>&nbsp; Save</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel multi="true" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Address</mat-panel-title>
+        <mat-panel-description>
+          Expand to enter your address info
+          <mat-icon color="primary">contact_mail</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFlex="20" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon avatarIcon>home</mat-icon>
+        </div>
+      </div>
+
+      <div fxFlex="70" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <mat-form-field fxFlex="50">
+            <mat-icon matPrefix>directions_car</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.StreetAddress" placeholder="Street Address" name="streetAddress" [formControl]="profileForm.controls['streetAddress']">
+            <mat-error *ngIf="profileForm.controls['streetAddress'].hasError('required')">
+              Friendly name is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="30">
+            <mat-icon matPrefix>home</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.AptNumber" placeholder="Apt #" name="aptNo" [formControl]="profileForm.controls['aptNo']">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <mat-form-field fxFlex="35">
+            <mat-icon matPrefix>location_city</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.City" placeholder="City" name="city" [formControl]="profileForm.controls['city']">
+            <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
+              City is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-select fxFlex="20" placeholder="State" [(ngModel)]="member.State" [formControl]="profileForm.controls['state']" name="state">
+            <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+          </mat-select>
+
+          <mat-form-field fxFlex="30">
+            <mat-icon matPrefix>my_location</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.ZipCode" placeholder="Zip Code" name="zipCode" [formControl]="profileForm.controls['zipCode']">
+            <mat-error *ngIf="profileForm.controls['zipCode'].hasError('required')">
+              Zip Code is
+              <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="profileForm.controls['zipCode'].hasError('pattern')">Invalid Zip Code</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!profileForm.valid">
+          <mat-icon>verified_user</mat-icon>&nbsp; Save</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel multi="true" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Other Information</mat-panel-title>
+        <mat-panel-description>Expand to enter addtitional info
+          <mat-icon color="primary">description</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFlex="20" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon avatarIcon>group</mat-icon>
+        </div>
+      </div>
+
+      <div fxFlex="70" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-around">
+          <mat-select placeholder="Gender" [(ngModel)]="member.Gender" [formControl]="profileForm.controls['gender']">
+            <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+          </mat-select>
+
+          <mat-form-field>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.EmergencyContact" placeholder="Emergency Contact" name="emergencyContact"
+              [formControl]="profileForm.controls['emergencyContact']">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-icon matPrefix>event</mat-icon>
+            <input matInput placeholder="Birthday" [(ngModel)]="member.Birthday" [matDatepicker]="birthdayPicker" (focus)="birthdayPicker.open()"
+              name="Birthday" [formControl]="profileForm.controls['birthday']">
+          </mat-form-field>
+          <mat-datepicker #birthdayPicker></mat-datepicker>
+        </div>
+      </div>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!profileForm.valid">
+          <mat-icon>verified_user</mat-icon>&nbsp; Save</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel multi="true" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Company</mat-panel-title>
+        <mat-panel-description>
+          Expand to enter company info
+          <mat-icon color="primary">business_center</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFlex="20" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon avatarIcon>business</mat-icon>
+        </div>
+      </div>
+
+      <div fxFlex="70" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-around">
+          <mat-form-field fxFlex="20" fxLayoutAlign="center end">
+            <mat-icon matPrefix>phone</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.OfficeExtension" placeholder="Office Extension" name="Office Extension"
+              [formControl]="profileForm.controls['officeExtension']">
+            <mat-error *ngIf="profileForm.controls['officeExtension'].hasError('required')">
+              Office Extension is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-select placeholder="Department" fxFlex="20" [(ngModel)]="member.Department" [formControl]="profileForm.controls['department']"
+            name="department">
+            <mat-option *ngFor="let department of departments" [value]="department">{{ department }}</mat-option>
+          </mat-select>
+
+          <mat-select placeholder="Division" fxFlex="20" [(ngModel)]="member.Division" [formControl]="profileForm.controls['division']"
+            name="division">
+            <mat-option *ngFor="let division of divisions" [value]="division">{{ division }}</mat-option>
+          </mat-select>
+
+          <mat-form-field fxFlex="20">
+            <mat-icon matPrefix>event</mat-icon>
+            <input matInput placeholder="Hire Date" [(ngModel)]="member.HireDate" [matDatepicker]="hireDatePicker" (focus)="hireDatePicker.open()"
+              name="HireDate" [formControl]="profileForm.controls['hireDate']">
+          </mat-form-field>
+          <mat-datepicker #hireDatePicker></mat-datepicker>
+        </div>
+      </div>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!profileForm.valid">
+          <mat-icon>verified_user</mat-icon>&nbsp; Save</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel multi="true" hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Integration</mat-panel-title>
+        <mat-panel-description>
+          Expand to enter PaperWise Integration info
+          <mat-icon color="primary">settings</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div fxFlex="20" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon avatarIcon>description</mat-icon>
+        </div>
+      </div>
+
+      <div fxFlex="70" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-around">
+          <mat-form-field fxFlex="30">
+            <mat-icon matPrefix>verified_user</mat-icon>
+            <input matInput fxLayoutAlign="end" [(ngModel)]="member.PaperWiseUsername" placeholder="PaperWise Username" name="paperWiseUsername"
+              [formControl]="profileForm.controls['paperWiseUsername']">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="30">
+            <mat-icon matPrefix>vpn_key</mat-icon>
+            <input matInput type="password" fxLayoutAlign="end" [(ngModel)]="member.PaperWisePassword" placeholder="PaperWise Password"
+              name="paperWisePassword" [formControl]="profileForm.controls['paperWisePassword']">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!profileForm.valid">
+          <mat-icon>verified_user</mat-icon>&nbsp; Save</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</form>

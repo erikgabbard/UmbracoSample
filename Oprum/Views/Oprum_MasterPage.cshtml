@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+
+@{
+    Layout = "~/App_Plugins/PoweredByOprum/Views/Oprum_LayoutMaster.cshtml";
+}
+
+@*@CurrentPage.GetGridHtml()*@
+@RenderBody()

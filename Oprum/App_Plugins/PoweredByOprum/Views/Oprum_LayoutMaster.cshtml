@@ -1,0 +1,107 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using ClientDependency.Core.Mvc;
+@using Umbraco.Web;
+
+@{
+    Layout = null;
+    var site = Model.Content.Site();
+    var sitePages = site.Children.Where(child => child.IsVisible());
+
+    var profilePicker = Umbraco.TypedContent(site.GetPropertyValue<int>("memberProfilePage"));
+    var profilePage = profilePicker?.Url;
+
+    var loginPicker = Umbraco.TypedContent(site.GetPropertyValue<int>("memberLoginPage"));
+    var loginUrl = loginPicker?.Url;
+
+    // Get basic design settings from the homepage
+    ContentModels.Home home = Model.Content.Site() as ContentModels.Home;
+    var colorTheme = Umbraco.GetPreValueAsString(home.ColorTheme);
+    var font = Umbraco.GetPreValueAsString(home.Font);
+
+    Html.RequiresCss("~/css/umbraco-starterkit-style.css");
+    Html.RequiresCss("~/node_modules/material-components-web/dist/material-components-web.min.css");
+    Html.RequiresCss("~/App_Plugins/PoweredByOprum/css/oprum-portal.css");
+
+    Html.RequiresJs("~/Umbraco_Client/Ui/jquery.js");
+    Html.RequiresJs("~/node_modules/material-components-web/dist/material-components-web.min.js");
+    Html.RequiresJs("~/App_Plugins/PoweredByOprum/js/oprum-portal.js");
+}
+<!DOCTYPE html>
+<html lang="en" class="mdc-typography">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @Html.RenderCssHere()
+</head>
+<body class="mdc-typography">
+    <aside oprum-content class="mdc-temporary-drawer mdc-typography mdc-theme--primary">
+        <nav oprum-nav-menu class="mdc-temporary-drawer__drawer mdc-theme--primary ">
+            <div oprum-nav-menu-card>
+                @Umbraco.RenderMacro("oprumAccountCard", new Dictionary<string, object> { { "loginSuccessUrl", CurrentPage.Url }, { "loginFailureUrl", "/" }, { "logoutRedirectUrl", "/" }, { "profileUrl", profilePage }, { "loginUrl", loginUrl } })
+            </div>
+            <nav class="mdc-temporary-drawer__content mdc-list mdc-theme--background">
+
+                <a oprum-nav-button class="mdc-list-item mdc-button--raised mdc-theme--primary-bg" href="/">
+                    <i oprum-nav-button-icon class="material-icons mdc-theme--primary mdc-theme--text-primary-on-primary" aria-hidden="true">home</i>
+                    <span oprum-nav-button oprum-nav-button-text class="mdc-theme--primary mdc-theme--text-primary-on-primary" data-mdc-auto-init="MDCRipple" aria-label="home">Home</span>
+                </a>
+                @foreach (var page in sitePages)
+                {
+                    if (Umbraco.MemberHasAccess(page.Path))
+                    {
+                        var pageIcon = page.GetPropertyValue<string>("navigationIcon");
+                        <a site-nav-button class="mdc-list-item mdc-button--raised mdc-theme--primary-bg" href="@page.Url">
+                            <i oprum-nav-button-icon class="material-icons mdc-theme--text-primary-on-primary" aria-hidden="true">@(string.IsNullOrEmpty(pageIcon) ? "web" : pageIcon)</i>
+                            <span oprum-nav-button oprum-nav-button-text class="mdc-theme--primary mdc-theme--text-primary-on-primary @(page.IsAncestorOrSelf(Model.Content) ? "active" : null)" aria-label="@page.Name" data-mdc-auto-init="MDCRipple">@page.Name</span>
+                        </a>
+                    }
+                }
+            </nav>
+        </nav>
+    </aside>
+    <div>
+        <header class="mdc-toolbar mdc-elevation--z4 mdc-theme--primary">
+            <div class="mdc-toolbar__row mdc-theme--primary">
+                <section class="mdc-toolbar__section mdc-toolbar__section--align-start mdc-theme--primary">
+                    <button class="oprum-menu material-icons mdc-toolbar__icon--menu mdc-theme--text-primary-on-primary">menu</button>
+                    @* When there is no SiteLogo defined for the page, CurrentPage.SiteLogo is an array... for whatever reason. *@
+                    @{
+                        var homepage = (ContentModels.Home)Umbraco.TypedContentAtRoot().First();
+                    }
+
+                    @if (homepage.SiteLogo is null)
+                    {
+                        <span class="mdc-toolbar__title catalog-title mdc-theme--text-primary-on-primary">@homepage.Sitename</span>
+                    }
+                    else
+                    {
+                        <img src="@homepage.SiteLogo.Url" />
+                    }
+                </section>
+            </div>
+        </header>
+        <main [oprum-content]>
+                @*<div class="logo">
+                                @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url))
+                                {
+                                    <div class="nav-link--home">
+                                        <img class="logo-image" style="width:200px; margin: 20px auto;" src="@home.SiteLogo.Url" alt="@home.Sitename">
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a class="nav-link nav-link--home nav-link--home__text logo-text" style="width:200px" href="/">@home.Sitename</a>
+                                }
+                            </div>
+                        </div>
+                    <div>*@
+                @RenderBody()
+        </main>
+    </div>
+    @Html.RenderJsHere()
+</body>
+</html>

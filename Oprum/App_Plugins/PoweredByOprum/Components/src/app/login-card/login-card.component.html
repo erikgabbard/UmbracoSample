@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<form login-form fxFlex name="LoginForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title fxLayoutAlign="start end">Portal Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field fxFill>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput fxLayoutAlign="end" [(ngModel)]="user.username" placeholder="Email Address" name="emailAddress" [formControl]="loginForm.controls['username']" autocomplete="off">
+        <mat-error *ngIf="loginForm.controls['username'].hasError('pattern')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['username'].hasError('required')" >
+          Email Address is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFill>
+        <mat-icon matPrefix>vpn_key</mat-icon>
+        <input matInput [(ngModel)]="user.password" type="password" placeholder="Password" name="password" [formControl]="loginForm.controls['password']" autocomplete="new-password">
+        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row">
+      <button type="reset" mat-button color="primary" (click)="openDialog()" fxLayoutAlign="start">Forgot Password</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" fxLayoutAlign="end"><mat-icon>verified_user</mat-icon>&nbsp; Sign In</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

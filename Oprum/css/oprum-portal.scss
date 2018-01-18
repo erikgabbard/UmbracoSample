@@ -1,0 +1,43 @@
+@import "../node_modules/@material/theme/mdc-theme";
+@import "../node_modules/@material/typography/mdc-typography";
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+:root {
+    --mdc-theme-primary: #2A69B3;
+    --mdc-theme-primary-light: #8C9DB2;
+    --mdc-theme-primary-dark: #173A62;
+    --mdc-theme-secondary: #5C5C5C;
+    --mdc-theme-secondary-light: #ACACAC;
+    --mdc-theme-secondary-dark: #232323;
+    --mdc-theme-background: #FFFFFF;
+}
+
+*, :after, :before {
+    box-sizing: border-box
+}
+
+body, html {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+[oprum-nav-menu-card] {
+    margin: 20px auto !important;
+}
+
+[oprum-nav-button], [site-nav-button] {
+    text-decoration: none;
+    min-height: 40px;
+    overflow: hidden;
+    //margin: 5px auto;
+}
+
+[oprum-nav-button-icon] {
+    margin: 0 1em 0 2em;
+}
+
+[oprum-nav-button-text] {
+    margin: 15px 0 0 0;
+}

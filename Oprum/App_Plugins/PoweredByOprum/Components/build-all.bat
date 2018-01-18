@@ -1,0 +1,5 @@
+start ng build --app=account-card -prod -aot -output-hashing none -d "~/App_Plugins/PoweredByOprum/Components/dist/account-card"
+start ng build --app=member-profile -prod -aot -output-hashing none -d "~/App_Plugins/PoweredByOprum/Components/dist/member-profile"
+start ng build --app=login-card -prod -aot -output-hashing none -d "~/App_Plugins/PoweredByOprum/Components/dist/login-card"
+start ng build --app=oprum-viewer -prod -aot -output-hashing none -d "~/App_Plugins/PoweredByOprum/Components/dist/oprum-viewer"
+start ng build --app=my-products -prod -aot -output-hashing none -d "~/App_Plugins/PoweredByOprum/Components/dist/my-products"

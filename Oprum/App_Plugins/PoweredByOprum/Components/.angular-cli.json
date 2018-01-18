@@ -1,0 +1,188 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "oprum"
+  },
+  "apps": [
+    {
+      "name": "login-card",
+      "root": "src",
+      "outDir": "dist/login-card",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "login-card.index.html",
+      "main": "login-card.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    
+    {
+      "name": "account-card",
+      "root": "src",
+      "outDir": "dist/account-card",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "account-card.index.html",
+      "main": "account-card.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    
+    {
+      "name": "member-profile",
+      "root": "src",
+      "outDir": "dist/member-profile",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "member-profile.index.html",
+      "main": "member-profile.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    
+    {
+      "name": "oprum-viewer",
+      "root": "src",
+      "outDir": "dist/oprum-viewer",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "oprum-viewer.index.html",
+      "main": "oprum-viewer.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+
+    {
+      "name": "side-menu-navigation",
+      "root": "src",
+      "outDir": "dist/side-menu-navigation",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "side-menu-navigation.index.html",
+      "main": "side-menu-navigation.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+
+    {
+      "name": "my-products",
+      "root": "src",
+      "outDir": "dist/my-products",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "my-products.index.html",
+      "main": "my-products.main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

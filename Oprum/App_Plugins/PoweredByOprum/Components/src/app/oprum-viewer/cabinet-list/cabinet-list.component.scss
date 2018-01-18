@@ -1,0 +1,10 @@
+@import '../../../assets/themes/oprum-theme.scss';
+
+md-expansion-panel-header {
+    background-color: mat-color($oprum-app-accent);
+}
+
+[documentIcon] {
+    vertical-align: middle !important;
+    margin-right: 1.2rem;
+}

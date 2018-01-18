@@ -1,0 +1,48 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-accordion fxFlex *ngIf="displayCabinet != null && displayCabinet !== undefined" multi="false">
+  <mat-expansion-panel>
+    <!-- <mat-expansion-panel-header (click)="selectCabinet(displayCabinet)"> -->
+    <mat-expansion-panel-header fxLayoutAlign="space-between">
+      <mat-panel-title fxLayoutAlign="start center">
+        <mat-icon documentIcon svgIcon="archive"></mat-icon>{{ displayCabinet.displayName }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-accordion multi="false">
+      <mat-expansion-panel *ngFor="let group of groupList">
+        <mat-expansion-panel-header (click)="onGroupSelected(group)">
+          <mat-panel-title>
+            <mat-icon documentIcon svgIcon="file-tree"></mat-icon>{{ group }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-accordion *ngIf="subGroupList.length > 0 && subGroupList[0] !== undefined" multi="false">
+          <mat-expansion-panel *ngFor="let subgroup of subGroupList">
+            <mat-expansion-panel-header (click)="onSubGroupSelected(group, subgroup)">
+              <mat-panel-title>
+                <mat-icon documentIcon svgIcon="file-tree"></mat-icon>{{ subgroup }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxFlex>
+              <div fxLayout="column" layout-fill *ngFor="let document of subGroupDocumentList">
+                <button mat-button documentButton style="width:100%; text-align:left;" color="primary" (click)="onDocumentSelected(document)">
+                  <mat-icon documentIcon svgIcon="{{ document.icon }}">{{ document.icon }}</mat-icon>{{ document.displayName }}
+                </button>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <div fxFlex *ngIf="groupDocumentList.length > 0 && groupDocumentList[0] !== undefined">
+          <div fxLayout="column" layout-fill *ngFor="let document of groupDocumentList">
+            <button mat-button documentButton style="width:100%; text-align:left;" color="primary" (click)="onDocumentSelected(document)">
+              <mat-icon documentIcon svgIcon="{{ document.icon }}">{{ document.icon }}</mat-icon>{{ document.displayName }}
+            </button>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </mat-expansion-panel>
+</mat-accordion>

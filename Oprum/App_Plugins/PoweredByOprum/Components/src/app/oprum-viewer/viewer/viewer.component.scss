@@ -1,0 +1,31 @@
+@import '../../../assets/themes/oprum-theme.scss';
+
+[spinnerContainer] {
+    margin: 20% 40%;
+}
+
+[viewerContent] {
+    max-height: 83vh;
+}
+
+[thumbScrollArea] {
+    background-color: mat-color($oprum-app-accent);
+    padding: 0 1em 0 0;
+    overflow-y: auto;
+}
+
+[pageThumbnail] {
+    width: 10em;
+    border: 1px solid mat-color($oprum-app-primary);
+    margin-bottom: 5px;
+}
+
+[documentScrollArea] {
+    background-color: mat-color($oprum-app-accent);
+    padding: 1em 5em;
+    overflow-y: auto;
+}
+
+[documentImage] {
+    border: 1px solid mat-color($oprum-app-primary);
+}

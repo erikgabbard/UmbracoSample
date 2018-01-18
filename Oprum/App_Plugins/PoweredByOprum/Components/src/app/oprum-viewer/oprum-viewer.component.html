@@ -1,0 +1,28 @@
+<mat-sidenav-container viewer-container fxFlex>
+    <mat-toolbar color="accent">
+        <div fxFlex="90">
+            <button type="button" mat-button fxFlex="80" (click)="sidenav.open()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div fxFlex>
+            <button type="button" mat-button [disabled]="selectedDocument == null" (click)="onZoomInClick()">
+                <mat-icon>zoom_in</mat-icon>
+            </button>
+            <button type="button" mat-button [disabled]="selectedDocument == null" (click)="onZoomOutClick()">
+                <mat-icon>zoom_out</mat-icon>
+            </button>
+            <button type="button" mat-button [disabled]="selectedDocument == null" (click)="onDownloadClick(selectedDocument.url)">
+                <mat-icon>file_download</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav #sidenav mode="over">
+        <cabinet-list [cabinetId]="cabinetId" [visibleInPortalField]="visibleInPortalField" [groupField]="groupField" [subGroupField]="subGroupField"
+            [documentNameField]="documentNameField" (navToggle)="sidenav.toggle()"></cabinet-list>
+    </mat-sidenav>
+
+    <div>
+        <viewer (currentZoom)="currentZoom"></viewer>
+    </div>
+</mat-sidenav-container>

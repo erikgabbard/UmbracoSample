@@ -1,0 +1,555 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+:root {
+  --mdc-theme-primary: #3f51b5;
+  --mdc-theme-primary-light: #a4addf;
+  --mdc-theme-primary-dark: #6f7dcd;
+  --mdc-theme-secondary: #ff4081;
+  --mdc-theme-secondary-light: #ff87b0;
+  --mdc-theme-secondary-dark: #f80054;
+  --mdc-theme-background: #fff;
+  --mdc-theme-text-primary-on-primary: white;
+  --mdc-theme-text-secondary-on-primary: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-primary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-primary-light: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-primary-light: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-primary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-primary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-primary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-primary-dark: white;
+  --mdc-theme-text-secondary-on-primary-dark: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-primary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-primary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-primary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-secondary: white;
+  --mdc-theme-text-secondary-on-secondary: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-secondary: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-secondary-light: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-secondary-light: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-secondary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-secondary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-secondary-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-secondary-dark: white;
+  --mdc-theme-text-secondary-on-secondary-dark: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-secondary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-secondary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-secondary-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
+  --mdc-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-primary-on-dark: white;
+  --mdc-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
+  --mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
+  --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
+
+.mdc-theme--background {
+  /* @alternate */
+  background-color: #fff;
+  background-color: var(--mdc-theme-background, #fff); }
+
+.mdc-theme--primary {
+  /* @alternate */
+  color: #3f51b5 !important;
+  color: var(--mdc-theme-primary, #3f51b5) !important; }
+
+.mdc-theme--primary-light {
+  /* @alternate */
+  color: #a4addf !important;
+  color: var(--mdc-theme-primary-light, #a4addf) !important; }
+
+.mdc-theme--primary-dark {
+  /* @alternate */
+  color: #6f7dcd !important;
+  color: var(--mdc-theme-primary-dark, #6f7dcd) !important; }
+
+.mdc-theme--secondary {
+  /* @alternate */
+  color: #ff4081 !important;
+  color: var(--mdc-theme-secondary, #ff4081) !important; }
+
+.mdc-theme--secondary-light {
+  /* @alternate */
+  color: #ff87b0 !important;
+  color: var(--mdc-theme-secondary-light, #ff87b0) !important; }
+
+.mdc-theme--secondary-dark {
+  /* @alternate */
+  color: #f80054 !important;
+  color: var(--mdc-theme-secondary-dark, #f80054) !important; }
+
+.mdc-theme--text-primary-on-primary {
+  /* @alternate */
+  color: white !important;
+  color: var(--mdc-theme-text-primary-on-primary, white) !important; }
+
+.mdc-theme--text-secondary-on-primary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--mdc-theme-text-secondary-on-primary, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-primary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-hint-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-primary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-disabled-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-primary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-icon-on-primary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-primary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.87) !important;
+  color: var(--mdc-theme-text-primary-on-primary-light, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-primary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.54) !important;
+  color: var(--mdc-theme-text-secondary-on-primary-light, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-primary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-hint-on-primary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-primary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-disabled-on-primary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-primary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-icon-on-primary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-primary-dark {
+  /* @alternate */
+  color: white !important;
+  color: var(--mdc-theme-text-primary-on-primary-dark, white) !important; }
+
+.mdc-theme--text-secondary-on-primary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--mdc-theme-text-secondary-on-primary-dark, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-primary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-hint-on-primary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-primary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-disabled-on-primary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-primary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-icon-on-primary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-secondary {
+  /* @alternate */
+  color: white !important;
+  color: var(--mdc-theme-text-primary-on-secondary, white) !important; }
+
+.mdc-theme--text-secondary-on-secondary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--mdc-theme-text-secondary-on-secondary, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-secondary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-hint-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-secondary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-disabled-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-secondary {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-icon-on-secondary, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-secondary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.87) !important;
+  color: var(--mdc-theme-text-primary-on-secondary-light, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-secondary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.54) !important;
+  color: var(--mdc-theme-text-secondary-on-secondary-light, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-secondary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-hint-on-secondary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-secondary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-disabled-on-secondary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-secondary-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-icon-on-secondary-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-secondary-dark {
+  /* @alternate */
+  color: white !important;
+  color: var(--mdc-theme-text-primary-on-secondary-dark, white) !important; }
+
+.mdc-theme--text-secondary-on-secondary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--mdc-theme-text-secondary-on-secondary-dark, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-secondary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-hint-on-secondary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-secondary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-disabled-on-secondary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-secondary-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-icon-on-secondary-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-primary-on-background {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.87) !important;
+  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-background {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.54) !important;
+  color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-background {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-background {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-disabled-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-background {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.87) !important;
+  color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87)) !important; }
+
+.mdc-theme--text-secondary-on-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.54) !important;
+  color: var(--mdc-theme-text-secondary-on-light, rgba(0, 0, 0, 0.54)) !important; }
+
+.mdc-theme--text-hint-on-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-hint-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-disabled-on-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-icon-on-light {
+  /* @alternate */
+  color: rgba(0, 0, 0, 0.38) !important;
+  color: var(--mdc-theme-text-icon-on-light, rgba(0, 0, 0, 0.38)) !important; }
+
+.mdc-theme--text-primary-on-dark {
+  /* @alternate */
+  color: white !important;
+  color: var(--mdc-theme-text-primary-on-dark, white) !important; }
+
+.mdc-theme--text-secondary-on-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--mdc-theme-text-secondary-on-dark, rgba(255, 255, 255, 0.7)) !important; }
+
+.mdc-theme--text-hint-on-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-hint-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-disabled-on-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-disabled-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--text-icon-on-dark {
+  /* @alternate */
+  color: rgba(255, 255, 255, 0.5) !important;
+  color: var(--mdc-theme-text-icon-on-dark, rgba(255, 255, 255, 0.5)) !important; }
+
+.mdc-theme--primary-bg {
+  /* @alternate */
+  background-color: #3f51b5 !important;
+  background-color: var(--mdc-theme-primary, #3f51b5) !important; }
+
+.mdc-theme--primary-light-bg {
+  /* @alternate */
+  background-color: #a4addf !important;
+  background-color: var(--mdc-theme-primary-light, #a4addf) !important; }
+
+.mdc-theme--primary-dark-bg {
+  /* @alternate */
+  background-color: #6f7dcd !important;
+  background-color: var(--mdc-theme-primary-dark, #6f7dcd) !important; }
+
+.mdc-theme--secondary-bg {
+  /* @alternate */
+  background-color: #ff4081 !important;
+  background-color: var(--mdc-theme-secondary, #ff4081) !important; }
+
+.mdc-theme--secondary-light-bg {
+  /* @alternate */
+  background-color: #ff87b0 !important;
+  background-color: var(--mdc-theme-secondary-light, #ff87b0) !important; }
+
+.mdc-theme--secondary-dark-bg {
+  /* @alternate */
+  background-color: #f80054 !important;
+  background-color: var(--mdc-theme-secondary-dark, #f80054) !important; }
+
+/* TODO(sgomes): Figure out what to do about desktop font sizes. */
+/* TODO(sgomes): Figure out what to do about i18n and i18n font sizes. */
+/* TODO(sgomes): Figure out what to do about desktop font sizes. */
+/* TODO(sgomes): Figure out what to do about i18n and i18n font sizes. */
+.mdc-typography {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; }
+
+.mdc-typography--display4 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 7rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 7rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--display4 {
+  margin: -1rem 0 3.5rem -0.085em; }
+
+.mdc-typography--display3 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 3.5rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--display3 {
+  margin: -8px 0 64px -0.07em; }
+
+.mdc-typography--display2 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.813rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 3rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--display2 {
+  margin: -0.5rem 0 4rem -0.07em; }
+
+.mdc-typography--display1 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2.5rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--display1 {
+  margin: -0.5rem 0 4rem -0.07em; }
+
+.mdc-typography--headline {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--headline {
+  margin: -0.5rem 0 1rem -0.06em; }
+
+.mdc-typography--title {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 2rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--title {
+  margin: -0.5rem 0 1rem -0.05em; }
+
+.mdc-typography--subheading2 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.75rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--subheading2 {
+  margin: -0.5rem 0 1rem -0.06em; }
+
+.mdc-typography--subheading1 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.938rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.5rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--subheading1 {
+  margin: -0.313rem 0 0.813rem -0.06em; }
+
+.mdc-typography--body2 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--body2 {
+  margin: -0.25rem 0 0.75rem 0; }
+
+.mdc-typography--body1 {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.25rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--body1 {
+  margin: -0.25rem 0 0.75rem 0; }
+
+.mdc-typography--caption {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.25rem;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.mdc-typography--adjust-margin.mdc-typography--caption {
+  margin: -0.5rem 0 1rem -0.04em; }
+
+.mdc-typography--button {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 2.25rem;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.mdc-typography--adjust-margin.mdc-typography--button {
+  margin: inherit; }
+
+:root {
+  --mdc-theme-primary: #2A69B3;
+  --mdc-theme-primary-light: #8C9DB2;
+  --mdc-theme-primary-dark: #173A62;
+  --mdc-theme-secondary: #5C5C5C;
+  --mdc-theme-secondary-light: #ACACAC;
+  --mdc-theme-secondary-dark: #232323;
+  --mdc-theme-background: #FFFFFF; }
+
+*, :after, :before {
+  box-sizing: border-box; }
+
+body, html {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+[oprum-nav-menu-card] {
+  margin: 20px auto !important; }
+
+[oprum-nav-button], [site-nav-button] {
+  text-decoration: none;
+  min-height: 40px;
+  overflow: hidden; }
+
+[oprum-nav-button-icon] {
+  margin: 0 1em 0 2em; }
+
+[oprum-nav-button-text] {
+  margin: 15px 0 0 0; }
+
+/*# sourceMappingURL=oprum-portal.css.map */

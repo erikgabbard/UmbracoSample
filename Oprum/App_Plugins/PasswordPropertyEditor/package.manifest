@@ -1,0 +1,18 @@
+﻿{
+	propertyEditors: 
+	[
+		{
+			alias: "PasswordProperty",
+			name: "Password Property",
+			editor:
+			{
+				view:"~/App_Plugins/PasswordPropertyEditor/passwordproperty.editor.html"
+			}
+		}
+	],
+
+	javascript:
+	[
+		"~/App_Plugins/PasswordPropertyEditor/passwordproperty.controller.js"
+	]
+}

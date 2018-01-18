@@ -1,0 +1,20 @@
+<mat-card viewer fxFlex>
+    <mat-card-header>
+        <!-- <mat-card-title>Document Viewer</mat-card-title> -->
+    </mat-card-header>
+    <mat-card-content viewerContent fxLayoutAlign="center">
+        <!-- <div spinnerContainer *ngIf="documentUrl == null || documentUrl === undefined" fxLayout="row" fxFlexAlignment="center center">
+            <mat-spinner></mat-spinner>
+        </div> -->
+        <div *ngIf="selectedDocument != null && selectedDocument !== undefined" fxFlex fxLayoutAlign="center">
+            <div thumbScrollArea>
+                <div *ngFor="let pic of selectedDocument.thumbnails">
+                    <img pageThumbnail src="{{ pic }}" (click)=onThumbnailClick(pic)/>
+                </div>
+            </div>
+            <div documentScrollArea fxFlex="80">
+                <img documentImage [style.zoom]="zoomSize" src="{{ selectedDocument.image }}" />
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
